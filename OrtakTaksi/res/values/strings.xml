@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OrtakTaksi</string>
+    <string name="uyg_adi">Ortak Taksi</string>
+    <string name="str_btn_find">Ara</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="bslangc_nokt">Başlangıç Noktası:</string>
+	<string name="varis_Nokt">Varış Noktası:</string>
+	<string name="baslangic_saati">Başlangıç Saati:</string>
+	<string name="kisi_sayisi">Kişi Sayısı:</string>
+	<string name="bulusma_nokt">Buluşma Noktası:</string>
+	<string name="seyahat_katil">Seyahate Katılanın sayfası</string>
+	<string name="seyahat_dahilolanlar">Seyahate Dahil Olanlar</string>
+	<string name="seyahat_dahilolan">Seyahate Dahil Olan Sayfası</string>
+	<string name="seyahat_baslat">Seyahat Başlat</string>
+	<string name="seyahat_bitir">Seyahat Bitir</string>
+	<string name="seyahat_ayril">Ayrıl</string>
+	<string name="iptal">İptal</string>
+	<string name="seyehatoluştur">Seyahat Oluştur</string>
+	<string name="seyehatkatil">Seyahat Katıl</string>
+	<string name="ProfilAdi">Adı Soyadı</string>
+	<string name="ProfilYas">Yaş</string>
+	<string name="ProfilPaylasim">Paylaşım Detayları</string>
+	<string name="ProfilResim">Profil Foto</string>
+	<string name="app_id">196075230541509</string>	
+    <string name="action_settings">Settings</string>
+    <string name="email_id">Email ID : </string>
+    <string name="adres">Seçilen adres</string>
+    <string-array name="place_type">
+    <item>airport</item>
+    <item>atm</item>
+    <item>bank</item>
+    <item>bus_station</item>
+    <item>church</item>
+    <item>doctor</item>
+    <item>hospital</item>
+    <item>mosque</item>
+    <item>restaurant</item>
+    </string-array>
+    <string-array name="place_type_name">
+        <item>Havaalanı</item>
+        <item>ATM</item>
+        <item>Banka</item>
+        <item>Otobüs Durağı</item>
+        <item>Kilise</item>
+        <item>Doctor</item>
+        <item>Hastame</item>
+        <item>Camii</item>
+        <item>Restaurant</item>        
+        </string-array>
+	
+	
+	
+</resources>

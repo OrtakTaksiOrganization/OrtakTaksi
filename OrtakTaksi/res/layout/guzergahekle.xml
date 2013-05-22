@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arkaplan" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/bslangc_nokt"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Beyaz" />
+
+    <AutoCompleteTextView
+        android:id="@+id/txt_baslangicNokt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_toLeftOf="@+id/btn_gps_baslangic"
+        android:ems="10"
+        android:textColor="@color/Siyah"
+        android:textColorHint="@color/Siyah"
+        android:textSize="@dimen/txt_fontbuyukluk" />
+
+    <Button
+        android:id="@+id/btn_gps_baslangic"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txt_baslangicNokt"
+        android:background="@drawable/gps" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_baslangicNokt"
+        android:layout_marginTop="22dp"
+        android:text="@string/varis_Nokt"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Beyaz" />
+
+    <AutoCompleteTextView
+        android:id="@+id/txt_varisNokt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/txt_baslangicNokt"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:textColor="@color/Siyah"
+        android:textColorHint="@color/Siyah"
+        android:textSize="@dimen/txt_fontbuyukluk" />
+
+    <Button
+        android:id="@+id/btn_gps_bitis"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:background="@drawable/gps" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_varisNokt"
+        android:layout_marginTop="23dp"
+        android:text="@string/bulusma_nokt"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Beyaz" />
+
+    <Button
+        android:id="@+id/bulusmagps"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:background="@drawable/gps" />
+
+      <EditText
+        android:id="@+id/txt_KisiSayisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:textSize="@dimen/txt_fontbuyukluk" />
+
+    <TextView
+        android:id="@+id/txt_Basl_Saati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="time"
+        android:text="TIKLAYINIZ!!"
+        android:textSize="@dimen/txt_fontbuyukluk" />
+
+    <AutoCompleteTextView
+        android:id="@+id/txt_BulusmaNoktasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/txt_varisNokt"
+        android:layout_alignTop="@+id/bulusmagps"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/Siyah"
+        android:textSize="@dimen/txt_fontbuyukluk" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_BulusmaNoktasi"
+        android:layout_marginTop="23dp"
+        android:text="@string/kisi_sayisi"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Beyaz" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_KisiSayisi"
+        android:layout_marginTop="18dp"
+        android:text="@string/baslangic_saati"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Beyaz" />
+
+    <Button
+        android:id="@+id/btn_Kaydet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/kaydet"
+        android:textColor="@color/Siyah" />
+
+    <Button
+        android:id="@+id/btn_Iptal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/iptal" />
+
+
+
+</RelativeLayout>

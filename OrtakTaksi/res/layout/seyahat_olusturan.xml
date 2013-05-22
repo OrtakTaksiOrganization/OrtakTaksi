@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arkaplan" >
+
+    <GridView
+        android:id="@+id/gridView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_Iptal_Seyahat"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView03"
+        android:numColumns="1"
+        android:paddingLeft="10dp" >
+
+    </GridView>
+
+    <Button
+        android:id="@+id/btn_Iptal_Seyahat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/btn_seyahat_olusturan"
+        android:text="@string/seyahat_bitir" />
+
+    <Button
+        android:id="@+id/btn_gps_baslangic"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:background="@drawable/gps" />
+
+    <Button
+        android:id="@+id/bulusmagps"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:background="@drawable/gps" />
+
+    <EditText
+        android:id="@+id/tx_varsNokt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/tx_baslNokt"
+        android:layout_alignTop="@+id/bulusmagps"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tx_varsNokt"
+        android:layout_marginTop="14dp"
+        android:text="@string/bulusma_nokt"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Beyaz" />
+
+    <EditText
+        android:id="@+id/tx_baslNokt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btn_gps_baslangic"
+        android:layout_toLeftOf="@+id/btn_gps_baslangic"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tx_baslNokt"
+        android:layout_marginTop="15dp"
+        android:text="@string/varis_Nokt"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Beyaz" />
+
+    <EditText
+        android:id="@+id/tx_bulsnokt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/tx_varsNokt"
+        android:layout_below="@+id/TextView04"
+        android:ems="10"
+        android:inputType="none" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/Button02"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/tx_bulsnokt"
+        android:layout_toRightOf="@+id/tx_varsNokt"
+        android:background="@drawable/gps" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView02"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="number|time" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tx_bulsnokt"
+        android:layout_marginTop="18dp"
+        android:text="@string/baslangic_saati"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Beyaz" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/bslangc_nokt"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Beyaz" />
+
+    <Button
+        android:id="@+id/btn_seyahat_olusturan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/editText1"
+        android:text="@string/seyahat_baslat" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="14dp"
+        android:text="@string/seyahat_dahilolanlar"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Beyaz" />
+
+</RelativeLayout>
