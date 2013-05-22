@@ -197,26 +197,28 @@ public class Havuz extends Activity implements OnClickListener   {
 	
 	private void Sorgula(String sorgu) {
 		try {
-
-			if (!isOnline()) 
-			{
-				Toast.makeText(this, "Ýnternet Baðlantýnýzý Kontrol Ediniz.",
-						Toast.LENGTH_LONG).show();
-				return;
-			}
-
-			ResultSet results = TabloSorgula(sorgu);
 			
-			metaData = results.getMetaData();
-			kolonSayisi = metaData.getColumnCount();
+				if (!isOnline()) 
+				{
+				Toast.makeText (this, "Internet Baglantinizi Kontrol Ediniz.", Toast.LENGTH_LONG).show();
+								return;
+				}
+				else
+				{				
 
-			otoID = 1;
-
-			arrayResults.clear();
-			tl.removeAllViews();
-
-			BasliklariEkle();
-			SatirlariEkle(results);
+				ResultSet results = TabloSorgula(sorgu);
+				
+				metaData = results.getMetaData();
+				kolonSayisi = metaData.getColumnCount();
+	
+				otoID = 1;
+	
+				arrayResults.clear();
+				tl.removeAllViews();
+	
+				BasliklariEkle();
+				SatirlariEkle(results);
+				}
 
 		} catch (Exception e) {
 			Toast.makeText(this, "HATA :" + e.toString(), Toast.LENGTH_LONG)
@@ -242,13 +244,14 @@ public class Havuz extends Activity implements OnClickListener   {
 		}
 		return results;
 	}
-	
-	private boolean isOnline() {
-	    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
-	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-	        return true;
-	    }
-	    return false;
-	}
+		
+		private boolean isOnline() {
+		    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+		    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+		        return true;
+		    }
+		    return false;
+		}
+
 }
