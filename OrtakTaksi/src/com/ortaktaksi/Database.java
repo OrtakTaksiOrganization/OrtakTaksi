@@ -37,6 +37,7 @@ public class Database extends Activity
 				} 
 			catch (ClassNotFoundException e1) 
 			{
+				ConnectionCount=-1;
 				e1.printStackTrace();
 			}
 
@@ -76,6 +77,7 @@ public class Database extends Activity
 	                        } 
 	                        	catch (SQLException e) 
 	                        {
+	                        		ConnectionCount=-2;
 	                        		e.printStackTrace();
 	                        }
 	                    }

@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
@@ -183,11 +184,26 @@ public class GuzergahEkle extends Activity {
 				
 				Database db = new Database();
 				db.GuzergahEkle(strBaslNok, strVarisNokt, strBulsNokt, UserID ,kisiSayisi, strBulsZamn, strxkoor, strykoor);
-				    
+				intent=new Intent(getApplicationContext(),Havuz.class);
+				if (Database.ConnectionCount==-1 || Database.ConnectionCount==-2) {
+					SystemClock.sleep(4000);
+					Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
 				}
+				else
+				{
+					Toast.makeText(getApplicationContext(),"Ýþleminiz baþarýyla gerçekleþtirildi.",Toast.LENGTH_LONG ).show();
+					startActivity(intent);
+				}
+				
+				}
+				
 		    }
+			
 		};
-		btnKaydet.setOnClickListener(lstnKaydet);			
+			btnKaydet.setOnClickListener(lstnKaydet);
+			
+		
+					
 	}
 	//otomatik tamammlama fonk.ve sýnýf baþlangýc
 		 private ArrayList<String> autocomplete(String input) {
