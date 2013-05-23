@@ -20,6 +20,14 @@ public class Database extends Activity
 	public int UserID=1;
 	public String GlobalUserID;
 	public static int ConnectionCount=0;
+	public static String FbEmail;
+	public static String FbUserID;
+	public static String FbUserName;
+	public static String FbName;
+	public static String FbBirthday;
+	public static String FbLocation;
+	public static String FbAge;
+	public static String FbSex;
 	
 	
 	public void GuzergahEkle
