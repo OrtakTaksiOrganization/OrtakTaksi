@@ -17,18 +17,96 @@ public class Database extends Activity
 	public static String DbPass= "123";
 	
 	public static  String CurrentUserEmailAddress="beytullahguney@gmail.com";
-	public int UserID=1;
-	public String GlobalUserID;
+	public static int UserID=1;
+//	public String GlobalUserID;
 	public static int ConnectionCount=0;
 	public static String FbEmail;
 	public static String FbUserID;
 	public static String FbUserName;
 	public static String FbName;
-	public static String FbBirthday;
-	public static String FbLocation;
-	public static String FbAge;
 	public static String FbSex;
+	 
 	
+	public void AddUser(String Email)
+	{
+		 new Thread(new Runnable() {
+				 
+		            public void run() {
+		 
+		                runOnUiThread(new Runnable() {
+		                    public void run() {
+		                        ResultSet results = null;	                        
+		                        try {
+		                            Connection conn = DriverManager
+		                            .getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);
+		 
+		                            Statement statement = conn.createStatement();
+		                            statement = conn.createStatement(
+		                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+		                            ResultSet.CONCUR_READ_ONLY);
+
+		                            
+		                            String sorgu = "exec spAddUsers " +
+		                            		"'"+ FbName +"','"+ 
+		                            		FbEmail +"','"+FbUserName +"','"+ 
+		                            		FbSex+"'";
+		                            
+		                         statement.executeQuery(sorgu);
+		 
+		                        } 
+		                        	catch (SQLException e) 
+		                        {
+		                        		ConnectionCount=-2;
+		                        		e.printStackTrace();
+		                        }
+		                    }
+		                });
+		            }			
+		        }).start();
+			
+			
+		
+	}
+	
+	
+	public int CurrentUserID() 
+	{
+		String sonuc=null ;
+		int ID = 0;
+		try {
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			} 
+		catch (ClassNotFoundException e1) 
+		{
+			e1.printStackTrace();
+		}
+		try {
+			
+			 Connection conn = DriverManager
+                     .getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);
+
+                     Statement statement = conn.createStatement();
+                     statement = conn.createStatement(
+                     ResultSet.TYPE_SCROLL_INSENSITIVE,
+                     ResultSet.CONCUR_READ_ONLY);
+			//sonuc = statement.executeQuery("SELECT UserID FROM Users WHERE Email=FbEmail").toString();
+			String sorgu="SELECT UserID FROM Users WHERE Email=FbEmail";
+			if (statement.executeQuery(sorgu)!=null) {
+				sonuc = statement.executeQuery(sorgu).toString();
+				ID=Integer.parseInt(sonuc);
+			}
+			else {
+				AddUser(FbEmail);
+			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		
+		return ID;
+	}
 	
 	public void GuzergahEkle
 	( 		final String BaslNok , 
@@ -36,9 +114,8 @@ public class Database extends Activity
 			final String BulusNokt, 
 			final int KullaniciID,
 			final int KisiSayisi,
-			final String BulusZamani,
-			final String xkoord,
-			final String ykoord){
+			final String BulusZamani
+			){
 		
 			try {
 				Class.forName("net.sourceforge.jtds.jdbc.Driver");
@@ -70,7 +147,7 @@ public class Database extends Activity
 	                            		"'"+ BaslNok +"','"+ 
 	                            		VarisNokt +"','"+BulusNokt +"','"+ 
 	                            		KullaniciID+ "','"+KisiSayisi+"','"+ 
-	                            		BulusZamani+"','"+xkoord+"','"+ykoord+"'";
+	                            		BulusZamani+"'";
 	                            
 	                            results = statement.executeQuery(sorgu);
 	                            
