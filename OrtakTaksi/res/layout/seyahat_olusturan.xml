@@ -50,8 +50,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/tx_baslNokt"
         android:layout_alignTop="@+id/bulusmagps"
+        android:background="@drawable/textview_border_sari"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="@color/Bej" />
 
     <TextView
         android:id="@+id/TextView04"
@@ -62,7 +64,7 @@
         android:layout_marginTop="14dp"
         android:text="@string/bulusma_nokt"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/Beyaz" />
+        android:textColor="@color/Beyaz"  />
 
     <EditText
         android:id="@+id/tx_baslNokt"
@@ -71,10 +73,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/btn_gps_baslangic"
         android:layout_toLeftOf="@+id/btn_gps_baslangic"
-        android:clickable="false"
-        android:editable="false"
+        android:background="@drawable/textview_border_sari"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="@color/Bej" />
 
     <TextView
         android:id="@+id/TextView01"
@@ -94,8 +96,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/tx_varsNokt"
         android:layout_below="@+id/TextView04"
+        android:background="@drawable/textview_border_sari"
         android:ems="10"
-        android:inputType="none" >
+        android:inputType="none"
+        android:textColor="@color/Bej" >
 
         <requestFocus />
     </EditText>
@@ -110,7 +114,7 @@
         android:background="@drawable/gps" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/txt_basl_Saati"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/TextView02"
@@ -118,7 +122,9 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/textView1"
         android:ems="10"
-        android:inputType="number|time" />
+        android:inputType="number|time"
+        android:textColor="@color/Bej"
+        android:background="@drawable/textview_border_sari" />
 
     <TextView
         android:id="@+id/TextView02"
@@ -147,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/editText1"
+        android:layout_toLeftOf="@+id/txt_basl_Saati"
         android:text="@string/seyahat_baslat" />
 
     <TextView
@@ -155,7 +161,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/txt_basl_Saati"
         android:layout_marginTop="14dp"
         android:text="@string/seyahat_dahilolanlar"
         android:textAppearance="?android:attr/textAppearanceMedium"

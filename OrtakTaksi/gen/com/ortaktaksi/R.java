@@ -273,6 +273,7 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f01000d;
     }
     public static final class color {
+        public static final int Bej=0x7f040012;
         public static final int Beyaz=0x7f04000f;
         public static final int Sari=0x7f040010;
         public static final int Siyah=0x7f040011;
@@ -293,8 +294,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f040006;
         public static final int common_signin_btn_light_text_focused=0x7f040007;
         public static final int common_signin_btn_light_text_pressed=0x7f040005;
-        public static final int common_signin_btn_text_dark=0x7f040012;
-        public static final int common_signin_btn_text_light=0x7f040013;
+        public static final int common_signin_btn_text_dark=0x7f040013;
+        public static final int common_signin_btn_text_light=0x7f040014;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -394,6 +395,7 @@ containing a value of this type.
         public static final int seyehatbaslat=0x7f020046;
         public static final int seyehatbitir=0x7f020047;
         public static final int taxi_3=0x7f020048;
+        public static final int textview_border_sari=0x7f020049;
     }
     public static final class id {
         public static final int Button02=0x7f050048;
@@ -438,7 +440,6 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f050022;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f050020;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f050021;
-        public static final int editText1=0x7f050049;
         public static final int gridView1=0x7f05003c;
         public static final int hybrid=0x7f050004;
         public static final int imageView1=0x7f050039;
@@ -469,6 +470,7 @@ containing a value of this type.
         public static final int txt_Basl_Saati=0x7f05002d;
         public static final int txt_BulusmaNoktasi=0x7f05002f;
         public static final int txt_KisiSayisi=0x7f05002b;
+        public static final int txt_basl_Saati=0x7f050049;
         public static final int txt_baslangicNokt=0x7f050024;
         public static final int txt_varisNokt=0x7f050027;
     }

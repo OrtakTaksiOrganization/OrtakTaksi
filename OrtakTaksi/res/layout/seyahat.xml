@@ -81,8 +81,10 @@
          android:layout_alignBottom="@+id/TextView04"
          android:layout_alignParentRight="true"
          android:layout_toRightOf="@+id/textView1"
+         android:background="@drawable/textview_border_sari"
          android:ems="10"
-         android:inputType="none" >
+         android:inputType="none"
+         android:textColor="@color/Bej" >
 
          <requestFocus />
      </EditText>
@@ -135,8 +137,10 @@
          android:layout_alignLeft="@+id/tx_varisnok"
          android:layout_alignParentRight="true"
          android:layout_alignParentTop="true"
+         android:background="@drawable/textview_border_sari"
          android:ems="10"
-         android:inputType="none" />
+         android:inputType="none"
+         android:textColor="@color/Bej" />
 
      <EditText
          android:id="@+id/tx_varisnok"
@@ -145,8 +149,10 @@
          android:layout_alignParentRight="true"
          android:layout_alignTop="@+id/TextView01"
          android:layout_toRightOf="@+id/textView1"
+         android:background="@drawable/textview_border_sari"
          android:ems="10"
-         android:inputType="none" />
+         android:inputType="none"
+         android:textColor="@color/Bej" />
 
      <EditText
          android:id="@+id/tx_bassaati"
@@ -154,7 +160,9 @@
          android:layout_height="wrap_content"
          android:layout_alignLeft="@+id/tx_bulsnokt"
          android:layout_alignTop="@+id/TextView02"
+         android:background="@drawable/textview_border_sari"
          android:ems="10"
-         android:inputType="time" />
+         android:inputType="time"
+         android:textColor="@color/Bej" />
 
 </RelativeLayout>
