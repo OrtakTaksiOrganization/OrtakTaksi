@@ -11,14 +11,13 @@ import android.widget.Toast;
 
 public class Database extends Activity
 {
-	public static String DbServerIP = "192.168.43.196:1433";
+	public static String DbServerIP = "192.168.1.41:1433";
 	public static String DbName= "projedb";
 	public static String DbUser = "sa";
 	public static String DbPass= "123";
 	
 	public static  String CurrentUserEmailAddress="beytullahguney@gmail.com";
 	public static int UserID=1;
-//	public String GlobalUserID;
 	public static int ConnectionCount=0;
 	public static String FbEmail;
 	public static String FbUserID;
@@ -26,6 +25,7 @@ public class Database extends Activity
 	public static String FbName;
 	public static String FbSex;
 	 
+	
 	
 	public void AddUser(String Email)
 	{
@@ -67,7 +67,6 @@ public class Database extends Activity
 			
 		
 	}
-	
 	
 	public int CurrentUserID() 
 	{
@@ -170,4 +169,41 @@ public class Database extends Activity
 	            }			
 	        }).start();
 	     }			
+	
+	public void SeyahatEkle
+	( 		final int GuzergahID , 
+			final int UserID, 
+			final String BaslangicNokt,
+			final String VarisNokt,
+			final String BaslngcSaati)
+	{
+		
+		
+		try
+	    {
+	        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+	        Connection connection = DriverManager.getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
+
+	        Statement statement = connection.createStatement();
+	        String SorguSeyahat= "exec spSeyahatEkle "+ GuzergahID+","+UserID+","+BaslangicNokt+","+VarisNokt+","+BaslngcSaati+"";
+
+	        statement.executeQuery(SorguSeyahat);
+	        //System.out.println("Data Inserted");
+
+	        ResultSet resultSet = statement.executeQuery("SELECT * FROM Seyahatler");
+
+	        while(resultSet.next())
+	        {
+	            System.out.println(resultSet.getString("SeyehatID"));
+	            resultSet.last();
+	        }
+
+	        connection.close();
+	    }
+	    catch (Exception e)
+	    {
+	        e.printStackTrace();
+	        System.err.println("Problem Connecting!");
+	    }		
+	}
 }

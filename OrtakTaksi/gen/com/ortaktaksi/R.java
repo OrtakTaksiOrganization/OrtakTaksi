@@ -400,13 +400,13 @@ containing a value of this type.
     public static final class id {
         public static final int Button02=0x7f050048;
         public static final int TextView01=0x7f050029;
-        public static final int TextView02=0x7f05003a;
-        public static final int TextView03=0x7f050042;
-        public static final int TextView04=0x7f05003b;
+        public static final int TextView02=0x7f05003b;
+        public static final int TextView03=0x7f050041;
+        public static final int TextView04=0x7f05003a;
         public static final int action_settings=0x7f05004a;
         public static final int authButton=0x7f050007;
         public static final int btn_Iptal=0x7f050031;
-        public static final int btn_Iptal_Seyahat=0x7f050041;
+        public static final int btn_Iptal_Seyahat=0x7f05003d;
         public static final int btn_Kaydet=0x7f050030;
         public static final int btn_Tamam=0x7f050038;
         public static final int btn_anamenu=0x7f05000d;
@@ -417,8 +417,8 @@ containing a value of this type.
         public static final int btn_guzergahekle=0x7f05000a;
         public static final int btn_guzergahlistele=0x7f05000b;
         public static final int btn_profilbilgisi=0x7f05000c;
-        public static final int btn_seyahat_katilan=0x7f05003f;
-        public static final int btn_seyahat_olusturan=0x7f05003d;
+        public static final int btn_seyahat_katilan=0x7f050042;
+        public static final int btn_seyahat_olusturan=0x7f05003f;
         public static final int bulusmagps=0x7f05002a;
         public static final int button4=0x7f05003e;
         public static final int com_facebook_login_activity_progress_bar=0x7f050010;

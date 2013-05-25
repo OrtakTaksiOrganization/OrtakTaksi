@@ -36,21 +36,21 @@ public class Havuz extends Activity implements OnClickListener   {
 	ArrayList<String> arrayResults = new ArrayList<String>();
 	public static List<String> SeciliSatirBilgileri = new ArrayList<String>();
 	
-	String Sorgu= "SELECT Users.Adi + ' ' +Users.Soyadi as Kullanici,"+
+	String Sorgu2= "SELECT Users.AdiSoyadi as Kullanici,"+
 	"Guzergah.BaslangicNoktasi, Guzergah.VarisNoktasi, Guzergah.BulusmaNoktasi, "+
-	"Guzergah.GuzergahID FROM Guzergah INNER JOIN  Users ON	Guzergah.OlusturanID = Users.UserID";
+	"Guzergah.GuzergahID, Guzergah.BulusmaSaati,Users.Email FROM Guzergah INNER JOIN  Users ON	Guzergah.OlusturanID = Users.UserID";
 	
+	String Sorgu="SELECT BaslangicNoktasi, VarisNoktasi, BulusmaSaati  FROM Guzergah"; 
 	
 	 
 	protected void onCreate (Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.havuz);
-		
+		setContentView(R.layout.havuz);		
 		url = "jdbc:jtds:sqlserver://"+Database.DbServerIP +";databaseName="+Database.DbName+"";
 		driver = "net.sourceforge.jtds.jdbc.Driver";		
 		ayarla();
-		Sorgula(Sorgu);
+		Sorgula(Sorgu2);
 	}
 	
 	@Override
@@ -74,18 +74,16 @@ public class Havuz extends Activity implements OnClickListener   {
 		for (int i = 1; i < kolonSayisi + 1; i++) {
 			try 
 			{
-				
-
-				satir += metaData.getColumnName(i).toString() + " : \r\n";
-				satir += arrayResults.get(otoId * kolonSayisi - 1 + i).toString() + "\r\n\r\n";
+				//satir += metaData.getColumnName(i).toString() + " : \r\n";
+				//satir += arrayResults.get(otoId * kolonSayisi - 1 + i).toString() + "\r\n\r\n";
 				SeciliSatirBilgileri.add(arrayResults.get(otoId * kolonSayisi - 1 + i).toString());
 			} 
-			catch (SQLException e) 
+			catch (Exception e) 
 			{
 				e.printStackTrace();
 			}
 		}
-		Builder builder = new Builder(this);
+		//Builder builder = new Builder(this);
 		
 		//builder.setMessage(satir).show();
 	}
@@ -106,13 +104,13 @@ public class Havuz extends Activity implements OnClickListener   {
 						
 //						if(Database.CurrentUserEmailAddress=="")
 //						{
-							Intent i2 = new Intent(getApplicationContext(), SeyahatOlusturan.class );
-							startActivity(i2);							
+							//Intent i2 = new Intent(getApplicationContext(), SeyahatOlusturan.class );
+							//startActivity(i2);							
 //						}
 //						else
 //						{
-//							Intent iwe = new Intent(getApplicationContext(), Seyahat.class );
-//							startActivity(iwe);
+							Intent iwe = new Intent(getApplicationContext(), Seyahat.class );
+							startActivity(iwe);
 //						}
 					}
 				});
@@ -135,8 +133,8 @@ public class Havuz extends Activity implements OnClickListener   {
 					else
 						s = "Null";
 					arrayResults.add(s);
-					if (s.length() > 8) {
-						s = s.substring(0, 8) + ".";
+					if (s.length() > 16) {
+						s = s.substring(0, 16) + ".";
 					}
 					tv.setText(s + " ");
 					tv.setId(tvId);
@@ -172,8 +170,8 @@ public class Havuz extends Activity implements OnClickListener   {
 				cName = metaData.getColumnName(i);
 
 				arrayResults.add(cName);
-				if (cName.length() > 7) {
-					cName = cName.substring(0, 7) + ".";
+				if (cName.length() > 16) {
+					cName = cName.substring(0, 16) + ".";
 				}
 				tv.setText(cName);
 				tv.setId(tvId);

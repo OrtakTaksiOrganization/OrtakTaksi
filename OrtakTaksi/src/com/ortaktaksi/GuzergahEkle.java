@@ -155,8 +155,8 @@ public class GuzergahEkle extends Activity {
 				}
 				else
 				{
-				String strBaslNok, strVarisNokt, strBulsNokt, strBulsZamn, strxkoor, strykoor, strKisiSay;
-                int UserID=1, kisiSayisi;
+				String strBaslNok, strVarisNokt, strBulsNokt, strBulsZamn, strKisiSay;
+                int kisiSayisi;
 				
 				TextView baslNokt= (TextView)findViewById(R.id.txt_baslangicNokt);
 				TextView VarsNokt= (TextView)findViewById(R.id.txt_varisNokt);
@@ -179,11 +179,8 @@ public class GuzergahEkle extends Activity {
 				strKisiSay	=kisiSayi.getText().toString();
 				kisiSayisi	=Integer.parseInt(strKisiSay);
 				
-				strxkoor="11,11111";
-				strykoor="22,22222";
-				
 				Database db = new Database();
-				db.GuzergahEkle(strBaslNok, strVarisNokt, strBulsNokt, UserID ,kisiSayisi, strBulsZamn, strxkoor, strykoor);
+				db.GuzergahEkle(strBaslNok, strVarisNokt, strBulsNokt, Database.UserID ,kisiSayisi, strBulsZamn);
 				intent=new Intent(getApplicationContext(),Havuz.class);
 				if (Database.ConnectionCount==-1 || Database.ConnectionCount==-2) {
 					SystemClock.sleep(4000);
@@ -315,7 +312,7 @@ public class GuzergahEkle extends Activity {
 
 		    }
 
-	
+	//Internet Baðlantýsý Kontrolü
 	public boolean isOnline() {
 	    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 	    NetworkInfo netInfo = cm.getActiveNetworkInfo();

@@ -108,8 +108,10 @@ public class MainActivity extends Activity {
 	                               {
 	                            	   Database.FbSex="Kadýn";
 								   }
-	                               intent =new Intent(getApplicationContext(),Anamenu.class);
-	                               startActivity(intent);
+	                               Database db = new Database();
+	                               db.CurrentUserID();
+	                               //intent =new Intent(getApplicationContext(),Anamenu.class);
+	                               //startActivity(intent);
 	                        	  
 	                               }
 	                          }
