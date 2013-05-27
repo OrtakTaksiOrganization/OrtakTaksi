@@ -56,7 +56,7 @@ public class GuzergahEkle extends Activity {
 
 	protected void onCreate (Bundle savedInstanceState)
 	{
-		int UserID=1;
+		int UserID=7;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.guzergahekle);
 		//baslangýç,varýþ ve buluþma noktalarý otomatik tamamlama
@@ -165,12 +165,12 @@ public class GuzergahEkle extends Activity {
 				TextView bulsZmn=  (TextView)findViewById(R.id.txt_Basl_Saati);
 				
 				if(baslNokt.getText().equals("")| VarsNokt.getText().equals("")|
-				BulsNokt.getText().equals("")| kisiSayi.getText().equals("")|
-				bulsZmn.getText().equals("") )
-				{
+						BulsNokt.getText().equals("")| kisiSayi.getText().equals("")|
+						bulsZmn.getText().equals("") )
+					{
 					Toast.makeText(getApplicationContext(), "Ýlgili Alanlarý Kontrol Ediniz.",Toast.LENGTH_LONG).show();
 					return;
-				}
+					}
 				
 				strBaslNok	=baslNokt.getText().toString();
 				strVarisNokt=VarsNokt.getText().toString();
@@ -179,20 +179,19 @@ public class GuzergahEkle extends Activity {
 				strKisiSay	=kisiSayi.getText().toString();
 				kisiSayisi	=Integer.parseInt(strKisiSay);
 				
-				Database db = new Database();
-				db.GuzergahEkle(strBaslNok, strVarisNokt, strBulsNokt, Database.UserID ,kisiSayisi, strBulsZamn);
-				intent=new Intent(getApplicationContext(),Havuz.class);
-				if (Database.ConnectionCount==-1 || Database.ConnectionCount==-2) {
-					SystemClock.sleep(4000);
-					Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
-				}
-				else
+				try
 				{
-					Toast.makeText(getApplicationContext(),"Ýþleminiz baþarýyla gerçekleþtirildi.",Toast.LENGTH_LONG ).show();
-					startActivity(intent);
+					Database db = new Database();
+					db.AddRoutes(strBaslNok, strVarisNokt, strBulsNokt, Database.UserID, kisiSayisi, strBulsZamn);
+					//Toast.makeText(getApplicationContext(),"Ýþleminiz baþarýyla gerçekleþtirildi.",Toast.LENGTH_LONG ).show();
+					Intent hvz = new Intent(getApplicationContext(), Havuz.class );
+					startActivity(hvz);
 				}
-				
+				catch(Exception e)
+				{
+					//Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
 				}
+			  }	
 				
 		    }
 			

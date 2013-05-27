@@ -48,7 +48,7 @@ public class Seyahat extends Activity
 				int guzID= Integer.parseInt(dort);
 				int CurrentUserID = 1;
 				//, CurrentUserID, SeyahatID, Durum
-				DB.SeyahatEkle(guzID, CurrentUserID, birinci, ikinci, bes);				
+				DB.AddJourney(guzID, CurrentUserID, birinci, ikinci, bes);				
 				 //Katýlma Talebi			
 			}
 		};

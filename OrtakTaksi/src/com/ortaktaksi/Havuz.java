@@ -36,10 +36,7 @@ public class Havuz extends Activity implements OnClickListener   {
 	ArrayList<String> arrayResults = new ArrayList<String>();
 	public static List<String> SeciliSatirBilgileri = new ArrayList<String>();
 	
-	String Sorgu2= "SELECT Users.AdiSoyadi as Kullanici,"+
-	"Guzergah.BaslangicNoktasi, Guzergah.VarisNoktasi, Guzergah.BulusmaNoktasi, "+
-	"Guzergah.GuzergahID, Guzergah.BulusmaSaati,Users.Email FROM Guzergah INNER JOIN  Users ON	Guzergah.OlusturanID = Users.UserID";
-	
+	String Sorgu2= "exec spGetRoutesList";
 	String Sorgu="SELECT BaslangicNoktasi, VarisNoktasi, BulusmaSaati  FROM Guzergah"; 
 	
 	 
@@ -236,7 +233,7 @@ public class Havuz extends Activity implements OnClickListener   {
 		return results;
 	}
 		
-		private boolean isOnline() {
+	private boolean isOnline() {
 		    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 		    NetworkInfo netInfo = cm.getActiveNetworkInfo();
 		    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
