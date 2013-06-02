@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@color/Kahve" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="50dp" android:layout_height="50dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/txName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/image"
+        android:text="Name"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lbl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txName"
+        android:layout_below="@+id/txName"
+        android:text="Başlangıç"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/lbl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txStartPoint"
+        android:layout_toRightOf="@+id/image"
+        android:text="Varış"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txStartPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl1"
+        android:layout_alignBottom="@+id/lbl1"
+        android:layout_toRightOf="@+id/lbl1"
+        android:paddingLeft="3dp"
+        android:text="StartPoint"
+        android:textColor="@color/Siyah"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txDestinationPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl2"
+        android:layout_alignBottom="@+id/lbl2"
+        android:layout_alignLeft="@+id/txStartPoint"
+        android:paddingLeft="3dp"
+        android:text="DestinationPoint"
+        android:textColor="@color/Siyah"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txName"
+        android:paddingLeft="3dp"
+        android:text="Time"
+        android:textColor="@color/Siyah"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lbl2"
+        android:layout_below="@+id/lbl2"
+        android:text="Bulusma"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txMeetingPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/txDestinationPoint"
+        android:paddingLeft="3dp"
+        android:text="MeetingPoint"
+        android:textColor="@color/Siyah"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txRoutesID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txDestinationPoint"
+        android:text="fff "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Kirmizi"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/txUserID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txRoutesID"
+        android:text="fff "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/Kirmizi"
+        android:textSize="11sp" />
+
+</RelativeLayout>

@@ -31,7 +31,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/tx_profil_FBName"
         android:background="@drawable/gps" />
 
     <Button
@@ -120,7 +120,7 @@
         android:layout_alignBaseline="@+id/TextView02"
         android:layout_alignBottom="@+id/TextView02"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@+id/tx_profil_FBName"
         android:ems="10"
         android:inputType="number|time"
         android:textColor="@color/Bej"
@@ -138,7 +138,7 @@
         android:textColor="@color/Beyaz" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tx_profil_FBName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

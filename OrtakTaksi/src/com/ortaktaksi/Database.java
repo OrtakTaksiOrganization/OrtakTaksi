@@ -11,16 +11,17 @@ import android.widget.Toast;
 
 public class Database extends Activity
 {
-	public static String DbServerIP = "192.168.1.33:1433";
+	public static String DbServerIP = "192.168.1.44:1433";
 	public static String DbName= "projedb";
 	public static String DbUser = "sa";
 	public static String DbPass= "123";
 	
-	public static  String CurrentUserEmailAddress="beytullahguney@gmail.com";
-	public static int UserID=7;
-	public static int ConnectionCount=0;
+	//FAcebookBilgileri Ve User Bilgileri
+	public static String CurrentUserEmailAddress;
+	public static int 	UserID;//OrtakTaksi KullanýcýID.
+	public static int 	ConnectionCount=0;
 	public static String FbEmail;
-	public static String FbUserID;
+	public static String FbUserID;//FacebookUserID => Resim çekerken kullanýlýr.
 	public static String FbUserName;
 	public static String FbName;
 	public static String FbSex;
@@ -48,60 +49,66 @@ public class Database extends Activity
 	
 	//Add User from email refer
 	public void AddUser(String Email)
-	{	                        
+	{	
+		String sorgu= "exec spAddUsers '"+FbName+"','"+FbEmail+"','"+FbUserName+"','"+FbUserName+"','"+ UserPassword+"','"+FbSex+"'";
+                        
 		try 
 		{
-		Connection conn = DriverManager
-		.getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);
-		Statement statement = conn.createStatement();
-		statement = conn.createStatement();
-		String sorgu= "exec spAddUsers '"+FbName+"','"+FbEmail+"','"+FbUserName+"','"+FbUserName+"','"+
-		UserPassword+"','"+FbSex+"'";
-		statement.executeQuery(sorgu);
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			Connection conn = DriverManager
+            .getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);
+			Statement statement = conn.createStatement();
+			statement.executeQuery(sorgu);
 		} 
 		catch (SQLException e)
 		{
-		ConnectionCount=-2;
-		e.printStackTrace();
+			ConnectionCount=-2;
+			e.printStackTrace();
+		} 
+		catch (ClassNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
    }
 	
 	//Get Current User ID but return null  Add Login User System
-	public int 	CurrentUserID() 
+	public int 	GetCurrentUserID(String FbEmailAdress) 
 	{
-		String sonuc=null ;
 		int ID = 0;
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver");
-			} 
-		catch (ClassNotFoundException e1) 
-		{
-			e1.printStackTrace();
-		}
-		try {
 			Connection conn = DriverManager
             .getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);
-			Statement statement = conn.createStatement();
-            statement = conn.createStatement();		
-			String sorgu="SELECT UserID FROM Users WHERE Email=FbEmail";
-			if (statement.executeQuery(sorgu)!=null) 
-			{
-				sonuc = statement.executeQuery(sorgu).toString();
-				ID=Integer.parseInt(sonuc);
+			Statement statement = conn.createStatement();	
+			String GetUserID_Query="exec projedb.dbo.spGetUserID '"+FbEmailAdress+"'";			
+			
+			ResultSet rs=statement.executeQuery(GetUserID_Query);			
+//			if (rs!=null) 
+//			{
+				 while (rs.next())
+				 {
+					ID=Integer.parseInt(rs.getString("UserID").toString()); 
+				 }
 				return ID;
-			}
-			else 
-			{
-				AddUser(FbEmail);
-			}
+//			}
+//			else 
+//			{
+//				AddUser(FbEmail);
+//				return GetCurrentUserID(FbEmail);
+//			}
 		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
-			// TODO: handle exception
+			Toast.makeText(this, "Hata : " + e.toString()+" -GetCurrentUserId Blogu", Toast.LENGTH_SHORT).show();
+			return -1;
+		}
+		finally
+		{
+			
 		}
 		
-		return ID;
 	}
 	
 	//Güzergah Ekleme 
@@ -110,9 +117,8 @@ public class Database extends Activity
 			final String MeetingPoint, 
 			final int CreateUserID,
 			final int PeopleCount,
-			final String MeetingTime
-			)
-	{
+			final String MeetingTime)
+		{
 		try
 		{ 
 			String Sorgu="exec spAddRoutes '"+StartPoint+"', '"+DestinationPoint+"', '"+MeetingPoint+"',"+CreateUserID+" , "+PeopleCount+", '"+MeetingTime+"'";
@@ -120,9 +126,10 @@ public class Database extends Activity
 	        Connection connection = DriverManager.getConnection(
 	        "jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
 	        Statement statement = connection.createStatement();
-	        ResultSet resultset= statement.executeQuery(Sorgu);
+	        //ResultSet resultset= 
+	        statement.executeQuery(Sorgu);
 	        connection.close();
-	        Toast.makeText(this, " Güzergah Eklendi.",Toast.LENGTH_LONG).show();
+	        //Toast.makeText(this, " Güzergah Eklendi.",Toast.LENGTH_LONG).show();
 		}
 		catch(Exception ex)
 		{

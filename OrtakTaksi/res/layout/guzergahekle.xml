@@ -5,7 +5,7 @@
     android:background="@drawable/arkaplan" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tx_profil_FBName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/tx_profil_FBName"
         android:layout_toLeftOf="@+id/btn_gps_baslangic"
         android:background="@drawable/textview_border_sari"
         android:ems="10"
@@ -112,8 +112,7 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/textview_border_sari"
         android:ems="10"
-        android:inputType="time"
-        android:text="   TIKLAYINIZ!!   "
+        android:text="@string/Tiklayiniz"
         android:textColor="@color/Bej"
         android:textSize="@dimen/txt_fontbuyukluk" />
 

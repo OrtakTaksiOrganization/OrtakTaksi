@@ -275,6 +275,8 @@ containing a value of this type.
     public static final class color {
         public static final int Bej=0x7f040012;
         public static final int Beyaz=0x7f04000f;
+        public static final int Kahve=0x7f040014;
+        public static final int Kirmizi=0x7f040013;
         public static final int Sari=0x7f040010;
         public static final int Siyah=0x7f040011;
         public static final int com_facebook_blue=0x7f04000a;
@@ -294,8 +296,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f040006;
         public static final int common_signin_btn_light_text_focused=0x7f040007;
         public static final int common_signin_btn_light_text_pressed=0x7f040005;
-        public static final int common_signin_btn_text_dark=0x7f040013;
-        public static final int common_signin_btn_text_light=0x7f040014;
+        public static final int common_signin_btn_text_dark=0x7f040015;
+        public static final int common_signin_btn_text_light=0x7f040016;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -398,29 +400,29 @@ containing a value of this type.
         public static final int textview_border_sari=0x7f020049;
     }
     public static final class id {
-        public static final int Button02=0x7f050048;
+        public static final int Button02=0x7f050051;
         public static final int TextView01=0x7f050029;
-        public static final int TextView02=0x7f05003b;
-        public static final int TextView03=0x7f050041;
-        public static final int TextView04=0x7f05003a;
-        public static final int action_settings=0x7f05004a;
+        public static final int TextView02=0x7f050044;
+        public static final int TextView03=0x7f05004a;
+        public static final int TextView04=0x7f050043;
+        public static final int action_settings=0x7f050053;
         public static final int authButton=0x7f050007;
         public static final int btn_Iptal=0x7f050031;
-        public static final int btn_Iptal_Seyahat=0x7f05003d;
+        public static final int btn_Iptal_Seyahat=0x7f050046;
         public static final int btn_Kaydet=0x7f050030;
-        public static final int btn_Tamam=0x7f050038;
+        public static final int btn_Tamam=0x7f050041;
         public static final int btn_anamenu=0x7f05000d;
         public static final int btn_cikis=0x7f050008;
-        public static final int btn_find=0x7f050035;
+        public static final int btn_find=0x7f05003e;
         public static final int btn_gps_baslangic=0x7f050025;
         public static final int btn_gps_bitis=0x7f050028;
         public static final int btn_guzergahekle=0x7f05000a;
         public static final int btn_guzergahlistele=0x7f05000b;
         public static final int btn_profilbilgisi=0x7f05000c;
-        public static final int btn_seyahat_katilan=0x7f050042;
-        public static final int btn_seyahat_olusturan=0x7f05003f;
+        public static final int btn_seyahat_katilan=0x7f05004b;
+        public static final int btn_seyahat_olusturan=0x7f050048;
         public static final int bulusmagps=0x7f05002a;
-        public static final int button4=0x7f05003e;
+        public static final int button4=0x7f050047;
         public static final int com_facebook_login_activity_progress_bar=0x7f050010;
         public static final int com_facebook_picker_activity_circle=0x7f05000f;
         public static final int com_facebook_picker_checkbox=0x7f050012;
@@ -440,37 +442,46 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f050022;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f050020;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f050021;
-        public static final int gridView1=0x7f05003c;
+        public static final int gridView1=0x7f050045;
         public static final int hybrid=0x7f050004;
-        public static final int imageView1=0x7f050039;
+        public static final int image=0x7f050032;
+        public static final int imageview_profil=0x7f050042;
         public static final int large=0x7f050006;
+        public static final int lbl1=0x7f050034;
+        public static final int lbl2=0x7f050035;
         public static final int lblEmail=0x7f050009;
-        public static final int map=0x7f050036;
+        public static final int map=0x7f05003f;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int picker_subtitle=0x7f05001f;
         public static final int satellite=0x7f050002;
         public static final int search_box=0x7f05001e;
         public static final int small=0x7f050005;
-        public static final int spr_place_type=0x7f050034;
+        public static final int spr_place_type=0x7f05003d;
         public static final int terrain=0x7f050003;
-        public static final int textAdres=0x7f050037;
-        public static final int textView1=0x7f050023;
+        public static final int textAdres=0x7f050040;
         public static final int textView2=0x7f050026;
         public static final int textView3=0x7f05002e;
         public static final int textView4=0x7f05002c;
-        public static final int tlSonuc=0x7f050032;
-        public static final int tv_lat=0x7f050033;
-        public static final int tx_baslNokt=0x7f050047;
-        public static final int tx_baslnokt=0x7f050043;
-        public static final int tx_bassaati=0x7f050045;
-        public static final int tx_bulsnokt=0x7f050040;
-        public static final int tx_varisnok=0x7f050044;
-        public static final int tx_varsNokt=0x7f050046;
+        public static final int tv_lat=0x7f05003c;
+        public static final int txDestinationPoint=0x7f050037;
+        public static final int txMeetingPoint=0x7f050039;
+        public static final int txName=0x7f050033;
+        public static final int txRoutesID=0x7f05003a;
+        public static final int txStartPoint=0x7f050036;
+        public static final int txTime=0x7f050038;
+        public static final int txUserID=0x7f05003b;
+        public static final int tx_baslNokt=0x7f050050;
+        public static final int tx_baslnokt=0x7f05004c;
+        public static final int tx_bassaati=0x7f05004e;
+        public static final int tx_bulsnokt=0x7f050049;
+        public static final int tx_profil_FBName=0x7f050023;
+        public static final int tx_varisnok=0x7f05004d;
+        public static final int tx_varsNokt=0x7f05004f;
         public static final int txt_Basl_Saati=0x7f05002d;
         public static final int txt_BulusmaNoktasi=0x7f05002f;
         public static final int txt_KisiSayisi=0x7f05002b;
-        public static final int txt_basl_Saati=0x7f050049;
+        public static final int txt_basl_Saati=0x7f050052;
         public static final int txt_baslangicNokt=0x7f050024;
         public static final int txt_varisNokt=0x7f050027;
     }
@@ -492,12 +503,13 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment=0x7f03000e;
         public static final int guzergahekle=0x7f03000f;
         public static final int havuz=0x7f030010;
-        public static final int info_window_layout=0x7f030011;
-        public static final int list_item=0x7f030012;
-        public static final int place_activity_main=0x7f030013;
-        public static final int profil=0x7f030014;
-        public static final int seyahat=0x7f030015;
-        public static final int seyahat_olusturan=0x7f030016;
+        public static final int havuz_list_item=0x7f030011;
+        public static final int info_window_layout=0x7f030012;
+        public static final int list_item=0x7f030013;
+        public static final int place_activity_main=0x7f030014;
+        public static final int profil=0x7f030015;
+        public static final int seyahat=0x7f030016;
+        public static final int seyahat_olusturan=0x7f030017;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -507,9 +519,10 @@ containing a value of this type.
         public static final int ProfilPaylasim=0x7f060042;
         public static final int ProfilResim=0x7f060043;
         public static final int ProfilYas=0x7f060041;
-        public static final int action_settings=0x7f060045;
-        public static final int adres=0x7f060047;
-        public static final int app_id=0x7f060044;
+        public static final int Tiklayiniz=0x7f060044;
+        public static final int action_settings=0x7f060046;
+        public static final int adres=0x7f060048;
+        public static final int app_id=0x7f060045;
         public static final int app_name=0x7f06002e;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
@@ -603,7 +616,7 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
-        public static final int email_id=0x7f060046;
+        public static final int email_id=0x7f060047;
         public static final int hello_world=0x7f060031;
         public static final int iptal=0x7f06003d;
         public static final int kisi_sayisi=0x7f060035;

@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +29,6 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -51,12 +49,11 @@ public class GuzergahEkle extends Activity {
 	    private AutoCompleteTextView Bulusma_Noktasi;
 	    public static String Bas_Nok;
 	    public static String Var_Nok;
-	    private Intent intent=null;
-	    private Thread thread;
+	    //private Intent intent=null;
+	    //private Thread thread;
 
 	protected void onCreate (Bundle savedInstanceState)
-	{
-		int UserID=7;
+	{		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.guzergahekle);
 		//baslangýç,varýþ ve buluþma noktalarý otomatik tamamlama
@@ -140,21 +137,16 @@ public class GuzergahEkle extends Activity {
 		};
 		btnIptal.setOnClickListener(lstnIptl);
 		
+		final Intent hvz = new Intent(this, Havuz.class );
 		
-		
+		//Güzergah Kaydet Butonu adýmlarý
 		Button btnKaydet= (Button)findViewById(id.btn_Kaydet);
 		View.OnClickListener lstnKaydet= new OnClickListener() {			
-							
+		Database db = new Database();			
 			@Override
 		    public void onClick(View v) 
 			{
-				if (!isOnline()) 
-				{
-					Toast.makeText(getApplicationContext(), "Ýnternet Baðlantýnýzý Kontrol Ediniz.",Toast.LENGTH_LONG).show();
-					return;
-				}
-				else
-				{
+				
 				String strBaslNok, strVarisNokt, strBulsNokt, strBulsZamn, strKisiSay;
                 int kisiSayisi;
 				
@@ -164,43 +156,37 @@ public class GuzergahEkle extends Activity {
 				TextView kisiSayi= (TextView)findViewById(R.id.txt_KisiSayisi);
 				TextView bulsZmn=  (TextView)findViewById(R.id.txt_Basl_Saati);
 				
-				if(baslNokt.getText().equals("")| VarsNokt.getText().equals("")|
-						BulsNokt.getText().equals("")| kisiSayi.getText().equals("")|
-						bulsZmn.getText().equals("") )
+				if(baslNokt.getText().equals("")|| VarsNokt.getText().equals("")||
+					BulsNokt.getText().equals("")|| kisiSayi.getText().equals("")||
+					bulsZmn.getText().equals("") ){
+					Toast.makeText(getApplicationContext(), "Eksik Alanlarý doldurunuz!", Toast.LENGTH_LONG).show();
+				}
+				else
+				{	
+					try
 					{
-					Toast.makeText(getApplicationContext(), "Ýlgili Alanlarý Kontrol Ediniz.",Toast.LENGTH_LONG).show();
-					return;
-					}
-				
-				strBaslNok	=baslNokt.getText().toString();
-				strVarisNokt=VarsNokt.getText().toString();
-				strBulsNokt	=BulsNokt.getText().toString();
-				strBulsZamn	=bulsZmn.getText().toString();
-				strKisiSay	=kisiSayi.getText().toString();
-				kisiSayisi	=Integer.parseInt(strKisiSay);
-				
-				try
-				{
-					Database db = new Database();
-					db.AddRoutes(strBaslNok, strVarisNokt, strBulsNokt, Database.UserID, kisiSayisi, strBulsZamn);
-					//Toast.makeText(getApplicationContext(),"Ýþleminiz baþarýyla gerçekleþtirildi.",Toast.LENGTH_LONG ).show();
-					Intent hvz = new Intent(getApplicationContext(), Havuz.class );
-					startActivity(hvz);
-				}
-				catch(Exception e)
-				{
-					//Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
-				}
-			  }	
-				
-		    }
-			
-		};
-			btnKaydet.setOnClickListener(lstnKaydet);
-			
-		
+						strBaslNok	=baslNokt.getText().toString();
+						strVarisNokt=VarsNokt.getText().toString();
+						strBulsNokt	=BulsNokt.getText().toString();
+						strBulsZamn	=bulsZmn.getText().toString();
+						strKisiSay	=kisiSayi.getText().toString();
+						kisiSayisi	=Integer.parseInt(strKisiSay);				
 					
-	}
+						
+						db.AddRoutes(strBaslNok, strVarisNokt, strBulsNokt, Database.UserID, kisiSayisi, strBulsZamn);										
+						startActivity(hvz);
+					}
+					catch(Exception e)
+					{
+					Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
+				}				
+			  }	
+			}												
+		};
+		btnKaydet.setOnClickListener(lstnKaydet);				
+	}//BtnKaydet Finish
+	
+	
 	//otomatik tamammlama fonk.ve sýnýf baþlangýc
 		 private ArrayList<String> autocomplete(String input) {
 		        ArrayList<String> resultList = null;

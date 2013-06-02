@@ -3,243 +3,85 @@ package com.ortaktaksi;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import android.app.Activity;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.app.Activity;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 import android.widget.Toast;
 
-public class Havuz extends Activity implements OnClickListener   {
+public class Havuz extends Activity {
 	
-	TableLayout tl;
-	ResultSetMetaData metaData;
-	TableRow renkTableRow;
+	private ListView listview;
+	private HavuzAdapter adapter;
+	
 
-	int kolonSayisi = 0, tvId = 0, otoID = 1;
-	String url, driver, userName, password;
-
-	ArrayList<String> arrayResults = new ArrayList<String>();
-	public static List<String> SeciliSatirBilgileri = new ArrayList<String>();
-	
-	String Sorgu2= "exec spGetRoutesList";
-	String Sorgu="SELECT BaslangicNoktasi, VarisNoktasi, BulusmaSaati  FROM Guzergah"; 
-	
-	 
-	protected void onCreate (Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.havuz);		
-		url = "jdbc:jtds:sqlserver://"+Database.DbServerIP +";databaseName="+Database.DbName+"";
-		driver = "net.sourceforge.jtds.jdbc.Driver";		
-		ayarla();
-		Sorgula(Sorgu2);
-	}
-	
 	@Override
-	public void onClick(View v) 
-	{
-		//Sorgula(Sorgu);
-		// TODO Auto-generated method stub
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		
-	}
-	
-	
-	private void ayarla()
-	{
-		tl= (TableLayout)findViewById(R.id.tlSonuc);
-	}
-
-
-	private void SatirGoster(int otoId) {
-		String satir = "";
-		SeciliSatirBilgileri.clear();
-		for (int i = 1; i < kolonSayisi + 1; i++) {
-			try 
+		listview = (ListView) View.inflate(this, R.layout.havuz, null);
+		setContentView(listview);		 
+		adapter = new HavuzAdapter(this, R.layout.havuz_list_item, 0, HavuzLoad() );
+		listview.setAdapter(adapter);
+		
+		listview.setOnItemClickListener(new OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
 			{
-				//satir += metaData.getColumnName(i).toString() + " : \r\n";
-				//satir += arrayResults.get(otoId * kolonSayisi - 1 + i).toString() + "\r\n\r\n";
-				SeciliSatirBilgileri.add(arrayResults.get(otoId * kolonSayisi - 1 + i).toString());
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		//Builder builder = new Builder(this);
+				//bu alana seyahat ekranlarýna geçiþ kodlarý eklenecek
+				//ve Routes Id verilerek exec projedb.dbo.spGetRoutePoolData [RoutesID] olarak
+				//gönderilip seyhat bilgileri gösterilecek
+				Toast.makeText( Havuz.this,"Týklanan RoutesID ="
+				+ adapter.getItem(position).getRoutesId(), Toast.LENGTH_SHORT).show();
+			}			
+		});		
+	}
+	
 		
-		//builder.setMessage(satir).show();
+	public List<HavuzClass> HavuzLoad( )
+	{	
+		String DbServerIP = Database.DbServerIP;;
+		String DbName= "projedb";
+		String DbUser = "sa";
+		String DbPass= "123";
+		String Sorgu=	"exec projedb.dbo.spGetRoutesList";
+		try
+	    {
+	        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+	        Connection connection = DriverManager.getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
+
+	        Statement statement = connection.createStatement();
+	        ResultSet resultSet = statement.executeQuery(Sorgu);
+	        List<HavuzClass> listHavuz = new ArrayList<HavuzClass>(2);
+	        
+	        
+	        while(resultSet.next())
+	        {
+	            String StrtPoint = resultSet.getString("StartPoint");
+	            String DestPoint = resultSet.getString("DestinationPoint");
+	            String NameSurname = resultSet.getString("NameSurname");
+	            String MeetingPoint = resultSet.getString("MeetingPoint");
+	            int RoutesId= resultSet.getInt("RoutesID");
+	            int CreteUserId= resultSet.getInt("CreateUserId");
+	            listHavuz.add(new HavuzClass(StrtPoint,DestPoint,MeetingPoint,NameSurname,CreteUserId, RoutesId));	            
+	        }
+
+	        connection.close();
+	        return listHavuz;
+	    }
+	    catch (Exception e)
+	    {
+	        e.printStackTrace();
+	        System.err.println("Problem Connecting!");
+	        return null;
+	    }	
+	
 	}
-	
-	private void SatirlariEkle(ResultSet results) {
-		try {
-			int satirSayisi = 0;
-
-			while (results.next()) {
-				TableRow row = new TableRow(this);
-				row.setBackgroundColor(Color.DKGRAY);
-				
-				row.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View view) {
-						SatirGoster(((TableRow) view).getId());
-						
-						
-//						if(Database.CurrentUserEmailAddress=="")
-//						{
-							//Intent i2 = new Intent(getApplicationContext(), SeyahatOlusturan.class );
-							//startActivity(i2);							
-//						}
-//						else
-//						{
-							Intent iwe = new Intent(getApplicationContext(), Seyahat.class );
-							startActivity(iwe);
-//						}
-					}
-				});
-
-//				TextView tvID = new TextView(this);
-//				tvID.setText(String.valueOf(otoID));
-				row.setId(otoID);
-//				row.addView(tvID);
-
-
-				otoID++;
-
-				for (int i = 1; i < kolonSayisi + 1; i++) {
-					TextView tv = new TextView(this);
-					tv.setTextColor(Color.LTGRAY);
-					
-					String s = "";
-					if (results.getString(i) != null)
-						s = results.getString(i).toString() + "";
-					else
-						s = "Null";
-					arrayResults.add(s);
-					if (s.length() > 16) {
-						s = s.substring(0, 16) + ".";
-					}
-					tv.setText(s + " ");
-					tv.setId(tvId);
-					row.addView(tv);
-					tvId++;
-				}
-				satirSayisi++;
-				tl.addView(row);
-			}
-			Toast.makeText(this, satirSayisi + " tane Aktif Güzergah Listelendi.",Toast.LENGTH_LONG).show();
-		} 
-		catch (Exception e) 
-		{
-			Toast.makeText(this, "Hata : " + e.toString(), Toast.LENGTH_SHORT).show();
-			return;
-		}
-	}
-
-	private void BasliklariEkle() {
-		try {
-			TableRow rowHeader = new TableRow(this);
-
-			TextView ID = new TextView(this);
-			ID.setText("Key ");
-//			rowHeader.addView(ID);
-
-			for (int i = 1; i < kolonSayisi + 1; i++) {
-				TextView tv = new TextView(this);
-				tv.setBackgroundColor(Color.WHITE);
-				tv.setTextColor(Color.BLACK);
-				String cName;
-
-				cName = metaData.getColumnName(i);
-
-				arrayResults.add(cName);
-				if (cName.length() > 16) {
-					cName = cName.substring(0, 16) + ".";
-				}
-				tv.setText(cName);
-				tv.setId(tvId);
-				rowHeader.addView(tv);
-				tvId++;
-			}
-			tl.addView(rowHeader);
-		} catch (SQLException e) {
-			Toast.makeText(this, "Hata : " + e.toString(), Toast.LENGTH_SHORT)
-					.show();
-			return;
-		}
-	}
-	
-	private void Sorgula(String sorgu) {
-		try {
-			
-				if (!isOnline()) 
-				{
-				Toast.makeText (this, "Internet Baglantinizi Kontrol Ediniz.", Toast.LENGTH_LONG).show();
-								return;
-				}
-				else
-				{				
-
-				ResultSet results = TabloSorgula(sorgu);
-				
-				metaData = results.getMetaData();
-				kolonSayisi = metaData.getColumnCount();
-				
-	
-				otoID = 1;
-	
-				arrayResults.clear();
-				tl.removeAllViews();
-	
-				BasliklariEkle();
-				SatirlariEkle(results);
-				}
-
-		} catch (Exception e) {
-			Toast.makeText(this, "HATA :" + e.toString(), Toast.LENGTH_LONG).show();
-			return;
-		}
-	}
-	
-	private ResultSet TabloSorgula(String sorgu) {
-		ResultSet results = null;
-		try 
-		{
-			Class.forName(driver).newInstance();
-			Connection conn = DriverManager.getConnection(url, Database.DbUser,Database.DbPass);
-			Statement statement = conn.createStatement();
-			results = statement.executeQuery(sorgu);
-			
-		} 
-		catch (Exception e) 
-		{
-			Toast.makeText(this, "Hata : " + e.toString(), Toast.LENGTH_SHORT)
-					.show();
-		}
-		return results;
-	}
-		
-	private boolean isOnline() {
-		    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-		    NetworkInfo netInfo = cm.getActiveNetworkInfo();
-		    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-		        return true;
-		    }
-		    return false;
-		}
 
 }

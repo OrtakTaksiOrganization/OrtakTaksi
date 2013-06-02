@@ -4,45 +4,46 @@
     android:layout_height="match_parent"
     android:background="@drawable/arkaplan" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_centerVertical="true"
-        android:text="@string/ProfilAdi"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/Beyaz" />
-
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageview_profil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="22dp"
-        android:contentDescription="@string/ProfilResim"
-        android:src="@drawable/profiltest" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/ProfilYas"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/Beyaz" />
+        android:contentDescription="@string/ProfilResim" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textView2"
         android:layout_marginTop="32dp"
         android:text="@string/ProfilPaylasim"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/Beyaz" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/ProfilAdi"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/Beyaz" />
+
+    <TextView
+        android:id="@+id/tx_profil_FBName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/Sari" />
 
 </RelativeLayout>

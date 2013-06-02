@@ -1,18 +1,10 @@
 package com.ortaktaksi;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONObject;
 
 import com.facebook.*;
-import com.facebook.Request.GraphUserCallback;
 import com.facebook.model.*;
 import com.facebook.widget.LoginButton;
-import com.facebook.widget.LoginButton.OnErrorListener;
-import com.google.android.gms.internal.s;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -35,10 +26,12 @@ public class MainActivity extends Activity {
 	 protected void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.activity_main);
+	  intent =new Intent(getApplicationContext(),Anamenu.class);
 	  LoginButton authButton = (LoginButton) findViewById(R.id.authButton);
 	  S=Session.getActiveSession();
 	  if(S!=null){
-	  if (S.getState().isOpened()) {
+		  if(S.getState().isOpened()) 
+		  {
 		  S.getAuthorizationBundle();
 		  Request.executeMeRequestAsync(S,
           new Request.GraphUserCallback() {
@@ -48,24 +41,27 @@ public class MainActivity extends Activity {
             		  Database.FbEmail=user.asMap().get("email").toString();
                       Database.FbName=user.getName();
                       Database.FbUserID=user.getId();
-                      if(user.getProperty("gender").toString()=="male")
+                      
+                      //Kýyaslamada hata var gender datasý hiç gelmiyor. Bakýlacak
+                      if(user.getProperty("gender")!=null)
                       {
-                   	   Database.FbSex="Erkek";
+	                      if(user.getProperty("gender").toString()=="male")
+	                      {
+	                   	   	Database.FbSex="Erkek";
+	                      }
+	                      else 
+	                      {
+	                   	   	Database.FbSex="Kadýn";
+						  }
                       }
-                      else 
-                      {
-                   	   Database.FbSex="Kadýn";
-					   }
                       
 				}
               }
-          });
-		 
-		
-		Toast.makeText(this, "Merhaba"+Database.FbName+"."+"Anamenüye yönlendiriliyorsunuz.", Toast.LENGTH_LONG).show();
-		intent =new Intent(getApplicationContext(),Anamenu.class);
-        startActivity(intent);
-	  	} 
+          });		 				  
+	  	Toast.makeText(this, "Merhaba "+Database.FbName+"."+" \n Anamenüye yönlendiriliyorsunuz.", Toast.LENGTH_LONG).show();
+	  	
+        startActivity(intent);	
+        } 
 	  }
 	  // set permission list, Don't foeget to add email
 	  authButton.setReadPermissions(Arrays.asList("basic_info","email"));
@@ -74,7 +70,7 @@ public class MainActivity extends Activity {
 		  
 	   @Override
 	   public void call(final Session session, SessionState state, Exception exception) {
-		   
+		//Logout Button Click Event
 	    if (session.isClosed()) {
 	    	
 			session.closeAndClearTokenInformation();
@@ -87,6 +83,7 @@ public class MainActivity extends Activity {
 			}
 			
 		}
+	    //Login Button Click Event Username password  
 	    else if (session.isOpened()) {
 	              Log.i(TAG,"Access Token"+ session.getAccessToken());
 	              Request.executeMeRequestAsync(session,
@@ -109,9 +106,8 @@ public class MainActivity extends Activity {
 	                            	   Database.FbSex="Kadýn";
 								   }
 	                               Database db = new Database();
-	                               db.CurrentUserID();
-	                               //intent =new Intent(getApplicationContext(),Anamenu.class);
-	                               //startActivity(intent);
+	                               Database.UserID = db.GetCurrentUserID(Database.FbEmail);
+	                               startActivity(intent);
 	                        	  
 	                               }
 	                          }
@@ -122,11 +118,10 @@ public class MainActivity extends Activity {
 	  });
 	
 	  Button btnCikis = (Button)findViewById(R.id.btn_cikis);		
-		View.OnClickListener lstn1= new OnClickListener() 
+	  View.OnClickListener lstn1= new OnClickListener() 
 		{			
 			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(),Anamenu.class);
-				startActivity(i);
+				startActivity(intent);
 			}
 		};		
 		btnCikis.setOnClickListener(lstn1);
@@ -135,7 +130,7 @@ public class MainActivity extends Activity {
 	 protected void OnResume() {
 		super.onResume();
 	
-	 Session s=Session.getActiveSession();
+	 //Session s=Session.getActiveSession();
 	 Toast.makeText(this, "onresume", Toast.LENGTH_LONG).show();
 	 }
 	

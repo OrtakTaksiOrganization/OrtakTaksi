@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/tx_profil_FBName"
         android:layout_marginTop="18dp"
         android:text="@string/varis_Nokt"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -81,7 +81,7 @@
          android:layout_below="@+id/TextView03" />
 
      <TextView
-         android:id="@+id/textView1"
+         android:id="@+id/tx_profil_FBName"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
@@ -96,7 +96,7 @@
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
          android:layout_alignParentRight="true"
-         android:layout_below="@+id/textView1"
+         android:layout_below="@+id/tx_profil_FBName"
          android:background="@drawable/textview_border_sari"
          android:ems="10"
          android:inputType="none"
