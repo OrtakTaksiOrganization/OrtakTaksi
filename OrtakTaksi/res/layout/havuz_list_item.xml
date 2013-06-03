@@ -64,17 +64,6 @@
         android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/txTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/txName"
-        android:paddingLeft="3dp"
-        android:text="Time"
-        android:textColor="@color/Siyah"
-        android:textSize="10sp" />
-
-    <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -97,25 +86,15 @@
         android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/txRoutesID"
+        android:id="@+id/txTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txName"
+        android:layout_alignBottom="@+id/txName"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/txDestinationPoint"
-        android:text="fff "
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/Kirmizi"
-        android:textSize="11sp" />
-
-    <TextView
-        android:id="@+id/txUserID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/txRoutesID"
-        android:text="fff "
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/Kirmizi"
-        android:textSize="11sp" />
+        android:paddingLeft="3dp"
+        android:text="Time"
+        android:textColor="@color/Siyah"
+        android:textSize="10sp" />
 
 </RelativeLayout>

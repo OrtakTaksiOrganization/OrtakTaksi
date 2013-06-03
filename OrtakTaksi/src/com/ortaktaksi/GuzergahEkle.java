@@ -158,7 +158,8 @@ public class GuzergahEkle extends Activity {
 				
 				if(baslNokt.getText().equals("")|| VarsNokt.getText().equals("")||
 					BulsNokt.getText().equals("")|| kisiSayi.getText().equals("")||
-					bulsZmn.getText().equals("") ){
+					bulsZmn.getText().equals("") )
+				{
 					Toast.makeText(getApplicationContext(), "Eksik Alanlarý doldurunuz!", Toast.LENGTH_LONG).show();
 				}
 				else
@@ -178,8 +179,8 @@ public class GuzergahEkle extends Activity {
 					}
 					catch(Exception e)
 					{
-					Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
-				}				
+						Toast.makeText(getApplicationContext(), "Bir sorun oluþtu..TEKRAR DENEYÝNÝZ", Toast.LENGTH_LONG).show();
+					}				
 			  }	
 			}												
 		};

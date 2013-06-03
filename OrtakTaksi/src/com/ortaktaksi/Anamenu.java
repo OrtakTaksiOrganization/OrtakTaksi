@@ -17,24 +17,23 @@ public class Anamenu extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.anamenu);
-		
+		Toast.makeText(this, "Merhaba "+Database.FbName+" User ID :"+Database.UserID , Toast.LENGTH_LONG).show();
+
 		gps = new GPSTracker(Anamenu.this);
 
-		
-		if(gps.canGetLocation()){
-	        	
-	        	double latitude = gps.getLatitude();
-	        	double longitude = gps.getLongitude();
-	        	
-	        	// \n is for new line
-	        	Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();	
-	        }
-		else{
-	        	// can't get location
-	        	// GPS or Network is not enabled
-	        	// Ask user to enable GPS/network in settings
-	        	gps.showSettingsAlert();
-	        }
+				if(gps.canGetLocation())
+				{	        	
+		        	double latitude = gps.getLatitude();
+		        	double longitude = gps.getLongitude();	        	
+		        	Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();	
+				}
+				else
+				{
+		        	// can't get location
+		        	// GPS or Network is not enabled
+		        	// Ask user to enable GPS/network in settings
+		        	gps.showSettingsAlert();
+				}
 		//Ana menü geçiþi
 		Button btnAnamenu = (Button)findViewById(id.btn_anamenu);		
 		View.OnClickListener lstn1= new OnClickListener() 

@@ -31,7 +31,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/tx_profil_FBName"
+        android:layout_below="@+id/textView1"
         android:background="@drawable/gps" />
 
     <Button
@@ -120,11 +120,11 @@
         android:layout_alignBaseline="@+id/TextView02"
         android:layout_alignBottom="@+id/TextView02"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/tx_profil_FBName"
+        android:layout_toRightOf="@+id/TextView03"
+        android:background="@drawable/textview_border_sari"
         android:ems="10"
         android:inputType="number|time"
-        android:textColor="@color/Bej"
-        android:background="@drawable/textview_border_sari" />
+        android:textColor="@color/Bej" />
 
     <TextView
         android:id="@+id/TextView02"
@@ -133,12 +133,13 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/tx_bulsnokt"
         android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/txt_basl_Saati"
         android:text="@string/baslangic_saati"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/Beyaz" />
 
     <TextView
-        android:id="@+id/tx_profil_FBName"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

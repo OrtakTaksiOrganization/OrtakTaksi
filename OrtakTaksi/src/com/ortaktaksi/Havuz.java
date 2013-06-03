@@ -8,17 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class Havuz extends Activity {
 	
 	private ListView listview;
 	private HavuzAdapter adapter;
-	
+	public static int routesID;		
+	public static String StartPoint	;
+	public static String DestinationPoint; 	
+	public static String MeetingPoint;
+	public static String MeetingTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +37,26 @@ public class Havuz extends Activity {
 		{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
-			{
-				//bu alana seyahat ekranlarýna geçiþ kodlarý eklenecek
-				//ve Routes Id verilerek exec projedb.dbo.spGetRoutePoolData [RoutesID] olarak
-				//gönderilip seyhat bilgileri gösterilecek
-				Toast.makeText( Havuz.this,"Týklanan RoutesID ="
-				+ adapter.getItem(position).getRoutesId(), Toast.LENGTH_SHORT).show();
+			{				
+				StartPoint		=adapter.getItem(position).getStartPoint();
+				DestinationPoint=adapter.getItem(position).getDestinationPoint();
+				MeetingPoint	=adapter.getItem(position).getMeetingPoint();
+				routesID		=adapter.getItem(position).getRoutesId();
+				MeetingTime		=adapter.getItem(position).getMeetingTime();
+				if(adapter.getItem(position).getCreateUserId()==Database.UserID)
+				{
+					Intent olstrn= new Intent(getApplicationContext(),SeyahatOlusturan.class);
+					startActivity(olstrn);
+					
+				}
+				else
+				{
+					Intent dahilolan=new Intent(getApplicationContext(),Seyahat.class);
+					startActivity(dahilolan);					
+				}
+				
+				//Toast.makeText( Havuz.this,"Týklanan RoutesID ="
+				//+ adapter.getItem(position).getCreateUserId(), Toast.LENGTH_SHORT).show();
 			}			
 		});		
 	}
@@ -46,15 +64,11 @@ public class Havuz extends Activity {
 		
 	public List<HavuzClass> HavuzLoad( )
 	{	
-		String DbServerIP = Database.DbServerIP;;
-		String DbName= "projedb";
-		String DbUser = "sa";
-		String DbPass= "123";
 		String Sorgu=	"exec projedb.dbo.spGetRoutesList";
 		try
 	    {
 	        Class.forName("net.sourceforge.jtds.jdbc.Driver");
-	        Connection connection = DriverManager.getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
+	        Connection connection = DriverManager.getConnection("jdbc:jtds:sqlserver://"+Database.DbServerIP+";databaseName="+Database.DbName+"",Database.DbUser ,Database.DbPass);	        
 
 	        Statement statement = connection.createStatement();
 	        ResultSet resultSet = statement.executeQuery(Sorgu);
@@ -64,12 +78,13 @@ public class Havuz extends Activity {
 	        while(resultSet.next())
 	        {
 	            String StrtPoint = resultSet.getString("StartPoint");
-	            String DestPoint = resultSet.getString("DestinationPoint");
-	            String NameSurname = resultSet.getString("NameSurname");
+	            String DestPoint = resultSet.getString("DestinationPoint");	            
 	            String MeetingPoint = resultSet.getString("MeetingPoint");
+	            String MeetingTime = resultSet.getString("MeetingTime");
+	            String NameSurname = resultSet.getString("NameSurname");
 	            int RoutesId= resultSet.getInt("RoutesID");
 	            int CreteUserId= resultSet.getInt("CreateUserId");
-	            listHavuz.add(new HavuzClass(StrtPoint,DestPoint,MeetingPoint,NameSurname,CreteUserId, RoutesId));	            
+	            listHavuz.add(new HavuzClass(StrtPoint,DestPoint,MeetingPoint,MeetingTime,NameSurname,CreteUserId, RoutesId));	            
 	        }
 
 	        connection.close();

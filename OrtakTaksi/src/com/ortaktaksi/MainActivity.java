@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	 private Intent intent=null;
 	 
 	 public static Session S;
-	
+	Database db = new Database();
 	 @Override
 	 protected void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
@@ -42,30 +42,36 @@ public class MainActivity extends Activity {
                       Database.FbName=user.getName();
                       Database.FbUserID=user.getId();
                       
+                      
+                      
+                      Database.UserID = db.GetCurrentUserID(Database.FbEmail);
+                      
+                      
                       //Kýyaslamada hata var gender datasý hiç gelmiyor. Bakýlacak
-                      if(user.getProperty("gender")!=null)
+                      if(user.asMap().get("gender")!=null)
                       {
-	                      if(user.getProperty("gender").toString()=="male")
+	                      if(user.asMap().get("gender").toString()=="male")
 	                      {
-	                   	   	Database.FbSex="Erkek";
+	                   	   	Database.FbGender="Erkek";
 	                      }
 	                      else 
 	                      {
-	                   	   	Database.FbSex="Kadýn";
+	                   	   	Database.FbGender="Kadýn";
 						  }
                       }
                       
 				}
               }
           });		 				  
-	  	Toast.makeText(this, "Merhaba "+Database.FbName+"."+" \n Anamenüye yönlendiriliyorsunuz.", Toast.LENGTH_LONG).show();
+	  	//Toast.makeText(this, "Merhaba "+Database.FbName+"."+" \n Anamenüye yönlendiriliyorsunuz.", Toast.LENGTH_LONG).show();
 	  	
         startActivity(intent);	
         } 
 	  }
 	  // set permission list, Don't foeget to add email
 	  authButton.setReadPermissions(Arrays.asList("basic_info","email"));
-	  // session state call back event
+	  
+	  // session state call back event Start
 	  authButton.setSessionStatusCallback(new Session.StatusCallback() {
 		  
 	   @Override
@@ -77,13 +83,13 @@ public class MainActivity extends Activity {
 			Database.FbEmail=null;
 			Database.FbName=null;
 			Database.FbUserID=null;
-			Database.FbSex=null;
+			Database.FbGender=null;
 			if (S!=null) {
 				S.closeAndClearTokenInformation();
 			}
 			
 		}
-	    //Login Button Click Event Username password  
+	    //Login Button Click Event Username password enter step Start
 	    else if (session.isOpened()) {
 	              Log.i(TAG,"Access Token"+ session.getAccessToken());
 	              Request.executeMeRequestAsync(session,
@@ -95,33 +101,39 @@ public class MainActivity extends Activity {
 	                               Log.i(TAG,"User ID "+ user.getId());
 	                               Log.i(TAG,"Email "+ user.asMap().get("email"));
 	                               Database.FbEmail=user.asMap().get("email").toString();
-	                               Database.FbName=user.getName();
+	                               Database.FbUserName= user.getUsername();
+	                               Database.FbName=user.getName();	                               
 	                               Database.FbUserID=user.getId();
-	                               if(user.getProperty("gender").toString()=="male")
+	                               
+	                               
+	                               //gender kontrolü null geliyor kontrol hep kadýn a geçiyo kontrol edilecek	                               
+	                               if(user.asMap().get("gender").toString()=="male")
 	                               {
-	                            	   Database.FbSex="Erkek";
+	                            	   Database.FbGender="Erkek";
 	                               }
 	                               else 
 	                               {
-	                            	   Database.FbSex="Kadýn";
+	                            	   Database.FbGender="Kadýn";
 								   }
-	                               Database db = new Database();
+	                               
 	                               Database.UserID = db.GetCurrentUserID(Database.FbEmail);
 	                               startActivity(intent);
 	                        	  
 	                               }
 	                          }
 	                      });
-	          }
+	          }//Login Button Click Event Username password enter step Finish
 	    }
 	   
-	  });
+	  }); // session state call back event Finish
 	
 	  Button btnCikis = (Button)findViewById(R.id.btn_cikis);		
 	  View.OnClickListener lstn1= new OnClickListener() 
 		{			
 			public void onClick(View v) {
+				
 				startActivity(intent);
+				
 			}
 		};		
 		btnCikis.setOnClickListener(lstn1);
@@ -131,7 +143,7 @@ public class MainActivity extends Activity {
 		super.onResume();
 	
 	 //Session s=Session.getActiveSession();
-	 Toast.makeText(this, "onresume", Toast.LENGTH_LONG).show();
+	 //Toast.makeText(this, "onresume", Toast.LENGTH_LONG).show();
 	 }
 	
 
