@@ -4,18 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/arkaplan" >
 
-    <GridView
-        android:id="@+id/gridView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_Iptal_Seyahat"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView03"
-        android:numColumns="1"
-        android:paddingLeft="10dp" >
-
-    </GridView>
-
     <Button
         android:id="@+id/btn_Iptal_Seyahat"
         android:layout_width="wrap_content"
@@ -31,7 +19,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/tv_NameSurname"
         android:background="@drawable/gps" />
 
     <Button
@@ -139,7 +127,7 @@
         android:textColor="@color/Beyaz" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_NameSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -167,5 +155,23 @@
         android:text="@string/seyahat_dahilolanlar"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/Beyaz" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_Iptal_Seyahat"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView03" />
+
+    <ListView
+        android:id="@+id/lstView_UserRequest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/view1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/view1" >
+
+    </ListView>
 
 </RelativeLayout>

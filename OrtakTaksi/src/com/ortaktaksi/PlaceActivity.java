@@ -162,7 +162,7 @@ public class PlaceActivity extends FragmentActivity implements LocationListener{
 				@Override
 				public View getInfoContents(Marker marker) {
 					// TODO Auto-generated method stub
-					 View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+					 getLayoutInflater().inflate(R.layout.info_window_layout, null);
 					 TextView Txt=(TextView)findViewById(R.id.textAdres);
 					 Txt.setText(marker.getTitle());
 

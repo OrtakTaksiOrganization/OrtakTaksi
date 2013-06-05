@@ -405,7 +405,7 @@ containing a value of this type.
         public static final int TextView02=0x7f05004c;
         public static final int TextView03=0x7f050046;
         public static final int TextView04=0x7f05004b;
-        public static final int action_settings=0x7f050052;
+        public static final int action_settings=0x7f050055;
         public static final int authButton=0x7f050007;
         public static final int btn_Iptal=0x7f050031;
         public static final int btn_Iptal_Seyahat=0x7f050042;
@@ -423,6 +423,7 @@ containing a value of this type.
         public static final int btn_seyahat_olusturan=0x7f050044;
         public static final int bulusmagps=0x7f05002a;
         public static final int button4=0x7f050043;
+        public static final int chkbox_status=0x7f050054;
         public static final int com_facebook_login_activity_progress_bar=0x7f050010;
         public static final int com_facebook_picker_activity_circle=0x7f05000f;
         public static final int com_facebook_picker_checkbox=0x7f050012;
@@ -450,6 +451,7 @@ containing a value of this type.
         public static final int lbl1=0x7f050034;
         public static final int lbl2=0x7f050035;
         public static final int lblEmail=0x7f050009;
+        public static final int lstView_UserRequest=0x7f050053;
         public static final int map=0x7f05003d;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
@@ -460,10 +462,10 @@ containing a value of this type.
         public static final int spr_place_type=0x7f05003b;
         public static final int terrain=0x7f050003;
         public static final int textAdres=0x7f05003e;
-        public static final int textView1=0x7f050048;
         public static final int textView2=0x7f050026;
         public static final int textView3=0x7f05002e;
         public static final int textView4=0x7f05002c;
+        public static final int tv_NameSurname=0x7f050048;
         public static final int tv_lat=0x7f05003a;
         public static final int txDestinationPoint=0x7f050037;
         public static final int txMeetingPoint=0x7f050038;
@@ -483,6 +485,7 @@ containing a value of this type.
         public static final int txt_basl_Saati=0x7f050051;
         public static final int txt_baslangicNokt=0x7f050024;
         public static final int txt_varisNokt=0x7f050027;
+        public static final int view1=0x7f050052;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -509,6 +512,7 @@ containing a value of this type.
         public static final int profil=0x7f030015;
         public static final int seyahat=0x7f030016;
         public static final int seyahat_olusturan=0x7f030017;
+        public static final int seyahatolusturan_listview_row=0x7f030018;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

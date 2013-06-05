@@ -59,7 +59,7 @@
          android:layout_below="@+id/TextView03" />
 
      <TextView
-         android:id="@+id/textView1"
+         android:id="@+id/tv_NameSurname"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
@@ -74,7 +74,7 @@
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
          android:layout_alignParentRight="true"
-         android:layout_below="@+id/textView1"
+         android:layout_below="@+id/tv_NameSurname"
          android:background="@drawable/textview_border_sari"
          android:ems="10"
          android:inputType="none"
@@ -157,7 +157,7 @@
          android:layout_alignBaseline="@+id/TextView02"
          android:layout_alignBottom="@+id/TextView02"
          android:layout_alignParentRight="true"
-         android:layout_toRightOf="@+id/textView1"
+         android:layout_toRightOf="@+id/tv_NameSurname"
          android:background="@drawable/textview_border_sari"
          android:ems="10"
          android:inputType="time"

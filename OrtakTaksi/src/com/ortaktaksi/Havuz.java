@@ -18,7 +18,8 @@ public class Havuz extends Activity {
 	
 	private ListView listview;
 	private HavuzAdapter adapter;
-	public static int routesID;		
+	public static int routesID;
+	public static int Last_JourneyID;
 	public static String StartPoint	;
 	public static String DestinationPoint; 	
 	public static String MeetingPoint;

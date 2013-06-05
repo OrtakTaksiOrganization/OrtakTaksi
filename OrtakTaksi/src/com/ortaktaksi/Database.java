@@ -147,26 +147,59 @@ public class Database extends Activity
 	public void AddJourney( 		
 			final int RoutesID , 
 			final int UserID, 
-			final String StarrPoint,
+			final String StartPoint,
 			final String DestinationPoint,
 			final String StartTime)
 	{ 
+		ResultSet rs=null;
 		try
 	    {
+			String Sorgu="INSERT INTO Journeys (RouteId, UserID, JR_StartPoint, JR_DestinationPoint, StartTime) VALUES ("+ 
+					+RoutesID+", "+UserID+",'"+StartPoint+"','"+DestinationPoint+"','"+StartTime+"')";
+			//String Sorgu="exec spAddJourney "+RoutesID+", "+UserID+",'"+StartPoint+"','"+DestinationPoint+"','"+StartTime+"')";
 	        Class.forName("net.sourceforge.jtds.jdbc.Driver");
-	        Connection connection = DriverManager.getConnection("jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
-
-	        Statement statement = connection.createStatement();
-	        String query = "exec spAddJourney "+RoutesID+","+UserID+", '"+StarrPoint +"', '"+DestinationPoint +"', '"+StartTime+"' , 1;";
-	        statement.executeQuery(query);
+	        Connection connection = DriverManager.getConnection(
+	        "jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
+	        Statement statement = connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE );
+	        statement.executeUpdate(Sorgu,Statement.RETURN_GENERATED_KEYS);
+	        rs=statement.getGeneratedKeys();
+	        while(rs.next())
+	        {
+	        	Havuz.Last_JourneyID=rs.getInt(1);
+	        }
+	        rs.close();
 	        connection.close();
-	        //Toast.makeText(this, "Seyahat Eklendi.",Toast.LENGTH_LONG).show();
 	    }
 	    catch (Exception ex)
 	    {
-	    	Toast.makeText(this, "Hata : " + ex.toString(), Toast.LENGTH_SHORT).show();
+	    	Toast.makeText(this, "Hata : " + ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
 			return;
 	    }		
 	}//AddJourney Finish Statement => Seyahat ekleme Son	
 
+	//Güzergah Ekleme 
+	public void SendRequest(
+			final int RoutesID, 		
+			final int CreateUserID,
+			final int JourneyID)
+		{
+		try
+		{ 	 
+			String Sorgu="exec projedb.dbo.spSendRequest "+RoutesID+", "+ JourneyID +", "+CreateUserID+","+ 0 +" ";
+	        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+	        Connection connection = DriverManager.getConnection(
+	        "jdbc:jtds:sqlserver://"+DbServerIP+";databaseName="+DbName+"",DbUser ,DbPass);	        
+	        Statement statement = connection.createStatement();
+	        statement.executeUpdate(Sorgu);
+	        connection.close();
+	        statement.close();	        
+		}
+		catch(Exception ex)
+		{
+			Toast.makeText(this, "Hata : " + ex.toString(), Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+			
+	}//Güzergah Ekleme Bitiþ  AddRoutes Finish
 }
