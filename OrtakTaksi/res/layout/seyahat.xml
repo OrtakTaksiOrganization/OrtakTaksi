@@ -4,18 +4,6 @@
     android:layout_height="match_parent" 
     android:background="@drawable/arkaplan"
     >
-    
-     <GridView
-         android:id="@+id/gridView1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_above="@+id/btn_Iptal_Seyahat"
-         android:layout_alignParentLeft="true"
-         android:layout_below="@+id/button4"
-         android:numColumns="1"
-         android:paddingLeft="10dp" >
- 
-    </GridView>
 
      <Button
          android:id="@+id/btn_seyahat_olusturan"
@@ -165,5 +153,15 @@
 
          <requestFocus />
      </EditText>
+
+     <ListView
+         android:id="@+id/lstviewTalepEden"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/btn_Iptal_Seyahat"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/button4" >
+
+     </ListView>
 
 </RelativeLayout>

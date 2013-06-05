@@ -9,9 +9,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/chkbox_status"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/Sari"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:onClick="onClick"
+		android:clickable="true"
+         />
 
     <CheckBox
         android:id="@+id/chkbox_status"

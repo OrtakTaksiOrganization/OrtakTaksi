@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Database extends Activity
 {
-	public static String DbServerIP = "192.168.1.38:1433";
+	public static String DbServerIP = "192.168.1.36:1433";
 	public static String DbName = "projedb";
 	public static String DbUser = "sa";
 	public static String DbPass = "123";

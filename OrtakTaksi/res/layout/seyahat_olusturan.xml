@@ -156,21 +156,16 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/Beyaz" />
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_Iptal_Seyahat"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/TextView03" />
-
     <ListView
         android:id="@+id/lstView_UserRequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/view1"
+        android:layout_above="@+id/btn_Iptal_Seyahat"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/view1" >
+        android:layout_below="@+id/TextView03"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
 
     </ListView>
 
