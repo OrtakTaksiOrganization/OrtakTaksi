@@ -57,6 +57,32 @@
          android:textColor="@color/Beyaz" />
 
      <EditText
+         android:id="@+id/tx_baslnokt"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/tv_NameSurname"
+         android:background="@drawable/textview_border_sari"
+         android:ems="10"
+         android:enabled="false"
+         android:inputType="none"
+         android:textColor="@color/Bej" />
+
+     <EditText
+         android:id="@+id/tx_varisnok"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/TextView01"
+         android:background="@drawable/textview_border_sari"
+         android:ems="10"
+         android:enabled="false"
+         android:inputType="none"
+         android:textColor="@color/Bej" />
+
+     <EditText
          android:id="@+id/tx_bulsnokt"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -74,7 +100,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
-         android:layout_below="@+id/tv_NameSurname"
+         android:layout_below="@+id/tx_baslnokt"
          android:layout_marginTop="16dp"
          android:text="@string/varis_Nokt"
          android:textAppearance="?android:attr/textAppearanceMedium"
@@ -85,7 +111,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignParentLeft="true"
-         android:layout_below="@+id/TextView01"
+         android:layout_below="@+id/tx_varisnok"
          android:layout_marginTop="22dp"
          android:text="@string/bulusma_nokt"
          android:textAppearance="?android:attr/textAppearanceMedium"
@@ -154,32 +180,5 @@
          android:textAppearance="?android:attr/textAppearanceSmall"
          android:textColor="@color/Beyaz"
          android:textSize="13dp" />
-
-     <AutoCompleteTextView
-         android:id="@+id/tx_baslnokt"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/tv_NameSurname"
-         android:background="@drawable/textview_border_sari"
-         android:ems="10"
-         android:enabled="false"
-         android:textColor="@color/Bej"
-         android:textColorHint="@color/Bej"
-         android:textSize="@dimen/txt_fontbuyukluk" />
-
-     <AutoCompleteTextView
-         android:id="@+id/tx_varisnok"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/TextView01"
-         android:background="@drawable/textview_border_sari"
-         android:ems="10"
-         android:textColor="@color/Bej"
-         android:textColorHint="@color/Bej"
-         android:textSize="@dimen/txt_fontbuyukluk" />
 
 </RelativeLayout>
