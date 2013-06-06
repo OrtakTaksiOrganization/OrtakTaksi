@@ -160,8 +160,20 @@
          android:layout_height="wrap_content"
          android:layout_above="@+id/btn_Iptal_Seyahat"
          android:layout_alignParentLeft="true"
-         android:layout_below="@+id/button4" >
+         android:layout_below="@+id/button4"
+         android:clickable="false"
+         android:longClickable="false" >
 
      </ListView>
+
+     <Button
+         android:id="@+id/btnmes"
+         style="?android:attr/buttonStyleSmall"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/tv_NameSurname"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:text="Button" />
 
 </RelativeLayout>
