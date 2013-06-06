@@ -424,7 +424,7 @@ containing a value of this type.
         public static final int btn_profilbilgisi=0x7f05000c;
         public static final int btn_seyahat_katilan=0x7f050049;
         public static final int btn_seyahat_olusturan=0x7f050045;
-        public static final int btnmes=0x7f050052;
+        public static final int btnmsg=0x7f050052;
         public static final int bulusmagps=0x7f05002a;
         public static final int button4=0x7f05004a;
         public static final int chkbox_status=0x7f050059;

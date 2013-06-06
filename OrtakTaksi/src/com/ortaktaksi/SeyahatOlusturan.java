@@ -11,6 +11,7 @@ import com.ortaktaksi.R.id;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,7 +45,16 @@ public class SeyahatOlusturan extends Activity {
 		etbulsnokt.setText(Havuz.MeetingPoint);
 		etbaslSaat.setText(Havuz.MeetingTime);				
 	
-
+		TextView btnmessage = (TextView)findViewById(R.id.btnmsg);
+		btnmessage.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(getApplicationContext(),Message.class);
+				startActivity(i);	
+			}
+		});
 		
 		listView = (ListView)findViewById(id.lstView_UserRequest);
 		adapter = new RequestListAdapter(this, R.layout.seyahatolusturan_listview_row, 0, RequestListLoad(Havuz.routesID));		

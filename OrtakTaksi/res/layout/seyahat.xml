@@ -166,14 +166,15 @@
 
      </ListView>
 
-     <Button
-         android:id="@+id/btnmes"
-         style="?android:attr/buttonStyleSmall"
+     <TextView
+         android:id="@+id/btnmsg"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/tv_NameSurname"
          android:layout_alignParentRight="true"
          android:layout_alignParentTop="true"
-         android:text="Button" />
+         android:text="mesaj"
+         android:textAppearance="?android:attr/textAppearanceSmall"
+         android:textColor="@color/Beyaz"
+         android:textSize="13dp" />
 
 </RelativeLayout>

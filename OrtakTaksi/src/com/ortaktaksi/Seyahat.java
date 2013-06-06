@@ -43,19 +43,16 @@ public class Seyahat extends Activity
 		etbaslSaat.setText(Havuz.MeetingTime);
 		etbaslNokt.setKeyListener(null);
 		etbulsnokt.setKeyListener(null);
-		Button btnmessage = (Button)findViewById(R.id.btnmes);
+		TextView btnmessage = (TextView)findViewById(R.id.btnmsg);
 		btnmessage.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-			Intent i = new Intent(getApplicationContext(),Message.class);
-			startActivity(i);
+				Intent i = new Intent(getApplicationContext(),Message.class);
+				startActivity(i);	
 			}
 		});
-		
-		
-		
 		//Ýptal butonu
 		Button btnIptal= (Button)findViewById(id.btn_Iptal_Seyahat);
 		View.OnClickListener lstnIptl= new OnClickListener() {			
