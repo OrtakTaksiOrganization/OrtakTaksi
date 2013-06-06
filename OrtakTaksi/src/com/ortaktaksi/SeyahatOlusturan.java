@@ -26,9 +26,9 @@ import android.widget.TextView;
 
 public class SeyahatOlusturan extends Activity {
 	
-	private static ListView ListView = null;
-
+	private static ListView listView = null;
 	private RequestListAdapter adapter;
+	
 	protected void onCreate (Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -45,21 +45,10 @@ public class SeyahatOlusturan extends Activity {
 	
 
 		
-		ListView = (ListView)findViewById(id.lstView_UserRequest);
+		listView = (ListView)findViewById(id.lstView_UserRequest);
 		adapter = new RequestListAdapter(this, R.layout.seyahatolusturan_listview_row, 0, RequestListLoad(Havuz.routesID));		
-		ListView.setAdapter(adapter);
+		listView.setAdapter(adapter);
 		
-//		ListView.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-//					long arg3) 
-//			{				
-//				Boolean status			=adapter.getItem(position).getStatus();
-//				thisRequestId 			=adapter.getItem(position).getRequestId();
-//
-//			}
-//		});
 	}
 
 	private void CheckBoxStatusChanged(Boolean Status,int RequestID)

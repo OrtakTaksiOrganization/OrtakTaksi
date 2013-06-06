@@ -14,8 +14,7 @@
         android:textColor="@color/Sari"
         android:textSize="15sp"
         android:onClick="onClick"
-		android:clickable="true"
-         />
+		android:clickable="true" />
 
     <CheckBox
         android:id="@+id/chkbox_status"

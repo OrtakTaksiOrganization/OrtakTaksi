@@ -405,7 +405,7 @@ containing a value of this type.
         public static final int TextView02=0x7f05004b;
         public static final int TextView03=0x7f050044;
         public static final int TextView04=0x7f05004a;
-        public static final int action_settings=0x7f050054;
+        public static final int action_settings=0x7f050055;
         public static final int authButton=0x7f050007;
         public static final int btn_Iptal=0x7f050031;
         public static final int btn_Iptal_Seyahat=0x7f050042;
@@ -423,7 +423,7 @@ containing a value of this type.
         public static final int btn_seyahat_olusturan=0x7f050041;
         public static final int bulusmagps=0x7f05002a;
         public static final int button4=0x7f050046;
-        public static final int chkbox_status=0x7f050053;
+        public static final int chkbox_status=0x7f050054;
         public static final int com_facebook_login_activity_progress_bar=0x7f050010;
         public static final int com_facebook_picker_activity_circle=0x7f05000f;
         public static final int com_facebook_picker_checkbox=0x7f050012;
@@ -466,6 +466,7 @@ containing a value of this type.
         public static final int textView3=0x7f05002e;
         public static final int textView4=0x7f05002c;
         public static final int tv_NameSurname=0x7f050047;
+        public static final int tv_NameSurname2=0x7f050053;
         public static final int tv_lat=0x7f05003a;
         public static final int txDestinationPoint=0x7f050037;
         public static final int txMeetingPoint=0x7f050038;
