@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -82,8 +83,7 @@ public class SeyahatOlusturan extends Activity {
 		        
 		    }
 		}
-	
-	
+		
 	public class RequestListClass 
 	{
 		private int RequestId;
@@ -259,4 +259,19 @@ public class SeyahatOlusturan extends Activity {
 	
 	}
 	
+	Button btnSeyahatBaslat=(Button)findViewById(R.id.btn_seyahat_olusturan);
+	View.OnClickListener BaslatListener= new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+			
+			
+			
+			//
+		}
+	};
+	
+
 }
